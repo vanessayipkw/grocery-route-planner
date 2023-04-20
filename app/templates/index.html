@@ -17,13 +17,13 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-            </div>    
+            </div>
             <div class="route-optimization">
                 <form action="{{ url_for('optimize') }}" method="post" class="form-group" novalidate>
                     {{ optimize_form.hidden_tag() }}
                     {{ optimize_form.optimize_type(class_="form-select")}}
                     {{ optimize_form.optimize_submit(class_="btn btn-info optimize-button") }}
-                </form>    
+                </form>
             </div>
             <div class="card border-dark mb-3 results">
                 <div class="card-header">Route Results</div>
@@ -32,6 +32,19 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
+{#            <div class="card border-dark mb-3 results">#}
+{#                <div class="card-header">Route Results</div>#}
+{#                <div class="card-body">#}
+{#                    <h4 class="card-title">GroceryGo Recommendations</h4>#}
+{#                    <p class="card-text">#}
+{#                        {% if "final_combo" in session %}#}
+{#                            {{ session["final_combo"] }}#}
+{#                        {% else %}#}
+{#                            Please tell us what you want to purchase.#}
+{#                        {% endif %}#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
         </div>
     </div>
 </div>
@@ -47,7 +60,7 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            {% endwith %}            
+            {% endwith %}
             <form  action="{{ url_for('location') }}" method="post" class="input-group mb-3" novalidate>
                 {{ location_form.hidden_tag() }}
                 <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -56,7 +69,7 @@
                 {% else %}
                     {{ location_form.location(class_="form-control", placeholder="Replace Start Location")}}
                 {% endif %}
-                
+
                 {{ location_form.location_submit(class_="btn btn-primary") }}
             </form>
             {% if "formatted_address" in session %}
